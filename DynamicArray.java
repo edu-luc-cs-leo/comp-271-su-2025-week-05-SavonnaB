@@ -63,7 +63,12 @@ public class DynamicArray {
      *         first occurrence of string.
      */
     public int indexOf(String string) {
-        return -1234;
+        for (int i = 0; i < this.occupancy; i++) { //SB: uses loop to return position of given string in array
+        if (this.underlying[i].equals(string)) {
+            return i;
+        }
+    }
+    return -1; //SB: iteration leaves the block if item is not present and outputs -1
     } // method indexOf
 
     /** Method to tell if a string exists in the underlying array */
