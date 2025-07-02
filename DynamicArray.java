@@ -73,7 +73,8 @@ public class DynamicArray {
 
     /** Method to tell if a string exists in the underlying array */
     public boolean contains(String string) {
-        return false;
+
+        return indexOf(string) =! -1; //SB: If string does not exist this logic should return false..I may have mixed this up with returning true.
     }
 
     /** Method to count how many times a string appears in the underlying array*/
