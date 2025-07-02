@@ -103,18 +103,30 @@ public class DynamicArray {
     this.underlying[this.occupancy - 1] = null;
     this.occupancy--;
 
-    return removed; //SB: could do a system.out.println with "item 2 has been removed from list" but trying to keep code concise
+    return removed; //SB: I could do a system.out.println with "item beta has been removed from list" but trying to keep code concise
     }
 
     /** overload remove */ 
     public String remove(String string) {
-        return "James on the street talking trash about your hotel";
+        int index = indexOf(string);
+        if index == -1 return null; //SB: returns empty and returns removed index. Maybe redundant I could've just left it null possibly.
+        return remove(index);
     }
 
     /** Complete this method */
     public String toString() {
-        return "to be done shortly"; // blatant violation of magic values clause
-                                     // serves as reminder to finish this method
+        public String toString() {
+    if (this.occupancy == 0) return "[Add New Guest]"; //SB: being honest I had to look this one up, I didn't really know what to put here
+
+    StringBuilder sb = new StringBuilder("New Guest"); //SB: keeping with hotel theme looked Stringbuilder to modify strings for loop iterations.
+    for (int i = 0; i < this.occupancy; i++) {
+        sb.append(this.underlying[i]);
+        if (i < this.occupancy - 1) {
+            sb.append(", ");
+        }
+    }
+    sb.append("Welcome!"); //SB: attaches to string output. Need to practice with this logic more.
+    return sb.toString();
     }
 
 } // class DynamicArray
