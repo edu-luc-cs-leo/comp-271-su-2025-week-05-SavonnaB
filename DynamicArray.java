@@ -79,7 +79,13 @@ public class DynamicArray {
 
     /** Method to count how many times a string appears in the underlying array*/
     public int countOf(String string) {
-        return -1234;
+        int count = 0;
+    for (int i = 0; i < this.occupancy; i++) {
+        if (this.underlying[i].equals(string)) { //SB: if the underlying contents equals the string, program keeps counting until conditions are no longer met.
+            count++;
+        }
+    }
+    return count; //SB: returns number of time string appeared, string should return 0 if not found
     }
 
     /** method to remove items from the underlying array */
