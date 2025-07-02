@@ -74,7 +74,7 @@ public class DynamicArray {
     /** Method to tell if a string exists in the underlying array */
     public boolean contains(String string) {
 
-        return indexOf(string) =! -1; //SB: If string does not exist this logic should return false..I may have mixed this up with returning true.
+        return indexOf(string) != -1; //SB: If string does not exist this logic should return false..I may have mixed this up with returning true.
     }
 
     /** Method to count how many times a string appears in the underlying array*/
@@ -90,7 +90,7 @@ public class DynamicArray {
 
     /** method to remove items from the underlying array */
     public String remove(int index) {
-        if (index < 0 || index >= this.occupancy) { //SB: If an index is less than 0 or index is greater than or equal to current occupancy, system should return full/null.
+        if (index < 0 || index >= this.occupancy){  //SB: If an index is less than 0 or index is greater than or equal to current occupancy, system should return full/null.
         return null;
     }
 
@@ -109,13 +109,14 @@ public class DynamicArray {
     /** overload remove */ 
     public String remove(String string) {
         int index = indexOf(string);
-        if index == -1 return null; //SB: returns empty and returns removed index. Maybe redundant I could've just left it null possibly.
+        if (index == -1) {
+            return null;
+         }//SB: returns empty and returns removed index. Maybe redundant I could've just left it null possibly.
         return remove(index);
     }
 
     /** Complete this method */
     public String toString() {
-        public String toString() {
     if (this.occupancy == 0) return "[Add New Guest]"; //SB: being honest I had to look this one up, I didn't really know what to put here
 
     StringBuilder sb = new StringBuilder("New Guest"); //SB: keeping with hotel theme looked Stringbuilder to modify strings for loop iterations.
@@ -128,5 +129,5 @@ public class DynamicArray {
     sb.append("Welcome!"); //SB: attaches to string output. Need to practice with this logic more.
     return sb.toString();
     }
-
-} // class DynamicArray
+}
+ // class DynamicArray
