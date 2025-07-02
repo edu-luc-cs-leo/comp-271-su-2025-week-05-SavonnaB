@@ -90,7 +90,20 @@ public class DynamicArray {
 
     /** method to remove items from the underlying array */
     public String remove(int index) {
-        return "James on the street talking trash about your hotel";
+        if (index < 0 || index >= this.occupancy) { //SB: If an index is less than 0 or index is greater than or equal to current occupancy, system should return full/null.
+        return null;
+    }
+
+    String removed = this.underlying[index];
+
+    for (int i = index; i < this.occupancy - 1; i++) { //SB: If items are supposed to shift to left I maybe should have used i-- but will compare to class notes
+        this.underlying[i] = this.underlying[i + 1];// Removes contents and resets available position? (unsure)
+    }
+
+    this.underlying[this.occupancy - 1] = null;
+    this.occupancy--;
+
+    return removed; //SB: could do a system.out.println with "item 2 has been removed from list" but trying to keep code concise
     }
 
     /** overload remove */ 
